@@ -12,3 +12,21 @@ document.getElementById("contactForm").addEventListener("submit", function (even
     alert("Your message has been sent!");
     document.getElementById("contactForm").reset();
 });
+
+// Animations on Scroll - Fade-in for elements
+document.addEventListener("DOMContentLoaded", function () {
+    const serviceCards = document.querySelectorAll('.service-card');
+
+    window.addEventListener('scroll', function () {
+        serviceCards.forEach(card => {
+            if (isInViewport(card)) {
+                card.style.opacity = 1;
+            }
+        });
+    });
+
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return rect.top >= 0 && rect.bottom <= window.innerHeight;
+    }
+});
